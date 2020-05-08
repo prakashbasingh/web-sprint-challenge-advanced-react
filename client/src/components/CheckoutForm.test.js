@@ -13,8 +13,21 @@ test("form header renders", () => {
 });
 
 test("form shows success message on submit with form details", () => {
-const button = getByText(/checkout/i);
-    // fireEvent.click(button);
+const {getByText, getByTestId, getByLabelText} = render(<CheckoutForm/>);
+
+const button = getByTestId(/checkoutButton/i);
+    fireEvent.click(button);
+    expect(getByTestId('checkoutButton')).toBeInTheDocument();
+
+    const successMessage = getByTestId(/successMessage/i);
+    expect(getByTestId('successMessage')).toBeInTheDocument();
+
+const firstName = getByLabelText(/first name:/i);
+const lastName = getByLabelText(/last name:/i);
+const address = getByLabelText(/address:/i);
+const city = getByLabelText(/city:/i);
+const state = getByLabelText(/state:/i);
+const zip = getByLabelText(/zip:/i);
 
 
 });

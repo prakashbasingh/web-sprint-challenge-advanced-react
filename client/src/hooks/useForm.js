@@ -12,5 +12,12 @@ export const useForm = (key, initialValue) => {
         });
     };
 
-    return [values, handleChanges]
+    // const submitForm = e => {
+    //     e.preventDefault()
+    //     setValues({
+    //       ...values, [values]: initialValues
+    //     })
+    //   }
+
+   return [values, handleChanges]
 }
